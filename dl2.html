@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标题</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="dl.css">
+        <style>
+        @font-face{
+          font-family:'楷体';
+          src:url('./k2.woff2') format('truetype');
+          font-display:swap;
+        }
+        p,h2,h1 {
+          font-family: '楷体';
+        }
+        div{
+          text-align: center;
+        }
+        span {
+          background-color: #3e9bffc2;
+        }
+          #bt{
+            text-align: center;
+            text-decoration: inline-block;
+          }
+        #k {
+            background: white;
+          }
+        html {
+          background: #cacaca76;
+        }
+        a:focus{
+          outline: none;
+        }
+        /* 重置内外边距 */
+          * {
+            -webkit-tap-highlight-color:transparent;
+            padding: 0;
+            box-sizing: border-box;
+            margin: 0;
+          }
+          nav ul{
+            list-style: none;
+            /* 水平排列 */
+            display: flex;
+            /*居中*/
+            justify-content: center;
+            /*每个导航项的距离*/
+            gap: 5%;
+          }
+          nav ul li a {
+            position: relative;
+            color: black;
+            text-decoration: none;
+            padding:2px 2px;
+            display: inline-block;
+            z-index: 1;
+          }
+          /* 悬停时展开 */
+          nav ul li a:hover::before{
+            transform: scaleX(1);
+          }
+          /* 滑块背景 */
+          nav ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:#3e9bffc2 ;
+            /* 初始宽度为0 */
+            transform: scaleX(0);
+            /* 从左向右展开 */
+            transform-origin:left ;
+            transition: transform 0.3s ease;
+            z-index: -1;
+            border-radius: 10px;
+          }
+          nav ul li.gl a{
+            background-color:#3e9bffc2 ;
+            border-radius: 10px;
+          }
+          div{
+            text-align:center ;
+          }
+          span {
+            margin: 5px auto;
+            background: #3e9bffc2;
+            color:white ;
+          }
+          h2{
+            margin: 20px auto;
+          }
+          /* ===== 可点击的 label 容器 ===== */
+.carousel-label {
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+
+/* ===== 轮播容器默认展开 ===== */
+#dh2 {
+    overflow: hidden;
+    max-height: 420px;                /* 根据你的图片实际高度调整，要比实际大 */
+    transition: max-height 0.5s ease, padding 0.3s ease;
+    animation-play-state: running;
+}
+
+/* ===== 折叠时 ===== */
+#toggleCarousel:checked ~ .carousel-label #dh2 {
+    max-height: 0;
+    padding: 0;
+    animation-play-state: paused;
+}
+
+/* ===== “...”符号默认隐藏 ===== */
+.collapse-indicator {
+    display: none;
+    height: 10px;                    /* 与轮播图高度一致，根据你的图高调整 */
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: #666;
+    background: #f0f0f0;
+    border-radius: 8px;
+    user-select: none;
+}
+
+/* ===== 折叠时显示“...” ===== */
+#toggleCarousel:checked ~ .carousel-label .collapse-indicator {
+    display: flex;}
+          #dl {
+            width: 100%;
+            display: block;
+          }
+          #dh {
+           width:100%;
+           overflow: hidden;
+          }
+          #dh1 {
+            width: 100%;
+            background-color: white;
+          }
+          #dh2{
+            width: 100%;
+            overflow: hidden;
+          }
+          #dh3 {
+            display: flex;
+            width: 600%;
+            animation: s 18s infinite ease-in-out;
+          }
+          .dh4 {
+            width: 16.666%;
+          }
+          .dh4 img {
+            object-fit:cover ;
+            aspect-ratio: 16/9;
+            width: 100%;
+            display: block;
+          }
+          @keyframes s {
+            0%{
+              transform: translateX(0);
+            }
+            13.89%{
+              transform: translateX(0);
+            }
+            16.67%{
+              transform: translateX(-16.666%);
+            }
+            30.56% {
+              transform: translateX(-16.666%);
+            }
+            33.333%{
+              transform: translateX(-33.333%);
+            }
+            47.22%{
+              transform: translateX(-33.333%);
+            }
+            50%{
+              transform: translateX(-50%);
+            }
+            63.89%{
+              transform: translateX(-50%);
+            }
+            66.67%{
+              transform: translateX(-66.666%);
+            }
+            80.56%{
+              transform: translateX(-66.666%);
+            }
+            83.33%{
+              transform: translateX(-83.333%);
+            }
+            97.22%{
+              transform: translateX(-83.333%);
+            }
+            100%{
+              transform: translateX(0);
+            }
+          }
+        </style>
+    </head>
+    <body>
+      <!-- 导航栏 -->
+      <div id="dh">
+      <img id="dl" src="dl.jpg">
+      <hr>
+      <!-- 隐藏的 checkbox -->
+<input type="checkbox" id="toggleCarousel" hidden>
+<!-- 可点击的 label，包裹整个轮播图和“...”符号 -->
+<label for="toggleCarousel" class="carousel-label">
+      <div id="dh2">
+        <div id="dh3">
+            <div class="dh4">
+              <img src="1.jpg">
+            </div>
+            <div class="dh4">
+              <img src="2.jpg">
+            </div>
+            <div class="dh4">
+              <img src="3.jpg">
+            </div>
+            <div class="dh4">
+              <img src="4.jpg">
+            </div>
+            <div class="dh4">
+              <img src="5.jpg">
+            </div>
+            <div class="dh4">
+              <img src="6.jpg">
+            </div>
+        </div>
+      </div>
+    <span class="collapse-indicator">…点击展开</span>
+</label>
+      </div>
+      <hr>
+      <div id="dh1">
+      <nav>
+        <ul>
+          <li ><a href="dl.html">学校简介</a></li>
+          <li class="gl"><a href="dl2.html">校园风采</a></li>
+          <li><a href="dl3.html">校园风光</a></li>
+          <li><a href="dl4.html">师资团队</a></li>
+          <li><a href="dl5.html">学校公告</a></li>
+          <li><a href="dl6.html">学校资讯</a></li>
+        </ul>
+      </nav>
+      <hr>
+      </div>
+            <div id="k">
+      <h2 id="bt">丰顺县东留中学</h2>
+      <div><span>学校校训:</span></div>
+      <hr>
+      <h2>博学、笃志、崇德、致远</h2>
+      <p>博学、笃志：出自《论语•子张六》：“博学而笃志，切问而近思，仁在其中矣。”
+<br>
+注释：广泛地学习，坚持自己的志趣，好问而多想当前的事情，仁德也就在其中了。
+<br>
+崇德：出自《论语•颜渊六》：“主忠信，徙义，崇德也。”
+<br>
+注释：推崇高尚的品格。
+<br>
+致远：出自《淮南子•主术训》：“是故非淡泊无以明德，非宁静无以致远，非宽大无以兼覆，非慈厚无以怀众，非平正无以制断。”诸葛亮《诫子书》：“非淡泊无以明志，非宁静无以致远。”
+<br>
+注释：实现远大理想。</p>
+      <div><span>学校校风:</span></div>
+      <hr>
+      <h2>文明勤奋、求实创新</h2>
+      <div><span>学校教风:</span></div>
+      <hr>
+      <h2>修德、思敬、敏行</h2>
+      <p>修德：出自《左传•庄公八年》：“《夏书》曰：‘皋陶迈种德，德，乃降’：姑务修德，以待时乎！《史记•五帝本纪》：“炎帝欲侵陵诸侯，诸侯咸归轩辕、轩辕乃修德振兵、治五气、蓺五种，抚万民，度四方，教熊罴貔貅貙虎，以与炎帝战于阪泉之野。三战，然后得其志。”
+<br>
+注释：修养德行。
+<br>
+思敬：出自《论语•季氏篇第十六》中记载的孔子曰：“君子有九思：视思明、听思聪，色思温，貌思恭，言思忠，事思敬，疑思问、忿思难、见得思义。”
+<br>
+注释：要懂得敬业、只有仔细思考，周密准备、态度认真，才能把事情办好。
+<br>
+敏行：出自《论语•里仁》：“君子欲讷于言而敏于行。”
+<br>
+注释：君子做事要勤劳敏捷。</p>
+      <div><span>学校学风:</span></div>
+      <hr>
+      <h2>慎思、善问、尚进</h2>
+      <p>慎思：出自《礼记•中庸》“博学之，审问之，慎思之，明辨之，笃行之。”
+<br>
+注释：谨慎地思考。
+<br>
+善问：出自《学记》：“善问者如攻坚木，先其易者，后其节目，及其久也，相说以解。”注释：掌握了“问”的方法和艺术，很多问题就迎刃而解。
+<br>
+尚进：崇尚、追求进步。</p>
+      </div>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+* {
+  animation: f 1s ease forwards;
+}
+@keyframes f {
+  from{
+    transform: translateY(10%);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}

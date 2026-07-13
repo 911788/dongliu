@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>标题</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+        <link rel="stylesheet" href="dl.css">
+        <style>
+        main {
+          border-radius: 10px;
+          background-color: white;
+        }
+        html {
+          background: #cacaca76;
+        }
+        a:focus{
+          outline: none;
+        }
+        /* 重置内外边距 */
+          * {
+            -webkit-tap-highlight-color:transparent;
+            padding: 0;
+            box-sizing: border-box;
+            margin: 0;
+          }
+          nav ul{
+            list-style: none;
+            /* 水平排列 */
+            display: flex;
+            /*居中*/
+            justify-content: center;
+            /*每个导航项的距离*/
+            gap: 5%;
+          }
+          aside ul{
+            list-style: none;
+            text-align: left;
+          }
+          #cb {
+            text-align: left;
+            display: flex;
+            gap: 6px;
+          }
+          nav ul li a {
+            
+            position: relative;
+            color: black;
+            text-decoration: none;
+            padding:2px 2px;
+            display: inline-block;
+            z-index: 1;
+          }
+          aside ul li a {
+            background-color: white;
+            position: relative;
+            color: black;
+            text-decoration: none;
+            padding: 3px 3px;
+            display: inline-block;
+            z-index: 1;
+            border-radius: 5px;
+            margin: 3px auto;
+          }
+          /* 悬停时展开 */
+          nav ul li a:hover::before{
+            transform: scaleX(1);
+          }
+          aside ul li a:hover::before{
+            transform: scaleX(1);
+          }
+          /* 滑块背景 */
+          nav ul li a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:#3e9bffc2 ;
+            /* 初始宽度为0 */
+            transform: scaleX(0);
+            /* 从左向右展开 */
+            transform-origin:left ;
+            transition: transform 0.3s ease;
+            z-index: -1;
+            border-radius: 10px;
+          }
+          aside ul li a::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:#3e9bffc2 ;
+            /* 初始宽度为0 */
+            transform: scaleX(0);
+            /* 从左向右展开 */
+            transform-origin:left ;
+            transition: transform 0.3s ease;
+            z-index: -1;
+            border-radius: 5px;
+          }
+          nav ul li.gl a{
+            background-color:#3e9bffc2 ;
+            border-radius: 10px;
+          }
+          #gl2 {
+            background-color:#3e9bffc2 !important;
+            border-radius: 5px;
+          }
+          div{
+            text-align:center ;
+          }
+          span {
+            font-weight: bold;
+            color:black ;
+          }
+          h2{
+            margin: 20px auto;
+          }
+          /* ===== 可点击的 label 容器 ===== */
+.carousel-label {
+    display: block;
+    cursor: pointer;
+    position: relative;
+}
+
+/* ===== 轮播容器默认展开 ===== */
+#dh2 {
+    overflow: hidden;
+    max-height: 420px;                /* 根据你的图片实际高度调整，要比实际大 */
+    transition: max-height 0.5s ease, padding 0.3s ease;
+    animation-play-state: running;
+}
+
+/* ===== 折叠时 ===== */
+#toggleCarousel:checked ~ .carousel-label #dh2 {
+    max-height: 0;
+    padding: 0;
+    animation-play-state: paused;
+}
+
+/* ===== “...”符号默认隐藏 ===== */
+.collapse-indicator {
+    display: none;
+    height: 10px;                    /* 与轮播图高度一致，根据你的图高调整 */
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: #666;
+    background: #f0f0f0;
+    border-radius: 8px;
+    user-select: none;
+}
+
+/* ===== 折叠时显示“...” ===== */
+#toggleCarousel:checked ~ .carousel-label .collapse-indicator {
+    display: flex;
+}
+          #k {
+            background: white;
+          }
+          #bt{
+            margin:5px auto;
+            text-align: center;
+            text-decoration: inline-block;
+          }
+          #dl {
+            width: 100%;
+            display: block;
+          }
+          #dh {
+            
+           width:100%;
+           margin: 5px auto;
+           overflow: hidden;
+          }
+          #dh1 {
+            width: 100%;
+            background-color: white;
+          }
+          #dh2{
+            width: 100%;
+            overflow: hidden;
+          }
+          #dh3 {
+            display: flex;
+            width: 600%;
+            animation: s 18s infinite ease-in-out;
+          }
+          .dh4 {
+            width: 16.666%;
+          }
+          .dh4 img {
+            object-fit:cover ;
+            aspect-ratio: 16/9;
+            width: 100%;
+            display: block;
+          }
+          @keyframes s {
+            0%{
+              transform: translateX(0);
+            }
+            13.89%{
+              transform: translateX(0);
+            }
+            16.67%{
+              transform: translateX(-16.666%);
+            }
+            30.56% {
+              transform: translateX(-16.666%);
+            }
+            33.333%{
+              transform: translateX(-33.333%);
+            }
+            47.22%{
+              transform: translateX(-33.333%);
+            }
+            50%{
+              transform: translateX(-50%);
+            }
+            63.89%{
+              transform: translateX(-50%);
+            }
+            66.67%{
+              transform: translateX(-66.666%);
+            }
+            80.56%{
+              transform: translateX(-66.666%);
+            }
+            83.33%{
+              transform: translateX(-83.333%);
+            }
+            97.22%{
+              transform: translateX(-83.333%);
+            }
+            100%{
+              transform: translateX(0);
+            }
+          }
+        </style>
+    </head>
+    <body>
+      <!-- 导航栏 -->
+      <div id="dh">
+      <img id="dl" src="dl.jpg">
+      <hr>
+      <!-- 隐藏的 checkbox -->
+<input type="checkbox" id="toggleCarousel" hidden>
+<!-- 可点击的 label，包裹整个轮播图和“...”符号 -->
+<label for="toggleCarousel" class="carousel-label">
+      <div id="dh2">
+        <div id="dh3">
+            <div class="dh4">
+              <img src="1.jpg">
+            </div>
+            <div class="dh4">
+              <img src="2.jpg">
+            </div>
+            <div class="dh4">
+              <img src="3.jpg">
+            </div>
+            <div class="dh4">
+              <img src="4.jpg">
+            </div>
+            <div class="dh4">
+              <img src="5.jpg">
+            </div>
+            <div class="dh4">
+              <img src="6.jpg">
+            </div>
+        </div>
+      </div>
+    <span class="collapse-indicator">…点击展开</span>
+</label>
+      </div>
+      <hr>
+      <div id="dh1">
+      <nav>
+        <ul>
+          <li><a href="dl.html">学校简介</a></li>
+          <li><a href="dl2.html">校园风采</a></li>
+          <li><a href="dl3.html">校园风光</a></li>
+          <li class="gl"><a href="dl4.html">师资团队</a></li>
+          <li><a href="dl5.html">学校公告</a></li>
+          <li><a href="dl6.html">学校资讯</a></li>
+        </ul>
+      </nav>
+      <hr>
+      </div>
+      <div id="cb">
+        <aside>
+          <ul>
+            <li><a id="gl2" href="dl4.html">校长领衔</a></li>
+            <li><a href="dl4(2).html">管理团队</a></li>
+            <li><a href="dl4(3).html">骨干教师</a></li>
+            <li><a href="dl4(4).html">教研风采</a></li>
+          </ul>
+        </aside>
+        <main>
+          <p><span>个人简介:</span>
+          林传生，初中德育正高级教师，1995 年回到母校东留中学任教至今。作为广东省"百千万人才培养工程"初中名书记名校长培养对象、丰顺县名校长工作室主持人，他提出"上善教育"办学品牌，将"上善若水，笃行见美"的核心理念与留隍潮客文化相融合，构建起以东留特色为底色的"上善文化"体系，带领学校成长为"有品位、有特色、高质量、高声誉"的县域品牌学校。</p><hr>
+          <span>校长寄语</span>
+          <p>
+            
+
+亲爱的同学们、老师们、家长朋友们：
+<br>
+东留中学坐落在韩江畔的留隍古镇，1974 年建校至今五十余年。当年乡贤朱孟依先生捐资改建，叶选平老前辈亲自题写校名——这份桑梓情，一直是我们办学的底色。
+<br>
+我常跟老师们说，山区学校拼的不是硬件，是"人"。2019 年我回到东中，和班子一起定了"上善教育"这个品牌，把"上善若水，笃行见美"的办学理念和留隍的潮客文化揉在一起——潮汕人的拼搏务实，客家人的崇文重教，落到孩子身上，就是校训里那八个字："博学、笃志、崇德、致远"。
+<br>
+我们做了几件实在事：万江锣鼓队让孩子们把鼓敲到县里市里，紫琳读书会把书读到心坎里，上善讲坛让老师和乡贤都能站上来讲一讲。"思政、课程、活动、实践、管理、协同"这六条路，走通一条是一条，目的只有一个——成全幸福的生命。
+<br>
+对同学们说：东中不大，但韩江水养人。书要读，鼓要敲，错要认，路要自己走。对老师们道一声：你们是东中的根。对家长们说：学校管教书，家里管托底，咱们一起，孩子才能走得远。
+<br>
+愿每一个从东中走出去的孩子，心里有善，脚下有力。
+<br>
+——党支部书记、校长 林传生
+          </p>
+        </main>
+      </div>
+    </body>
+</html>
